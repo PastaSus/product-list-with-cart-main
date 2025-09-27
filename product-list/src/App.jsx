@@ -6,7 +6,7 @@ import desserts from "./assets/data.json";
 
 function App() {
   return (
-    <main>
+    <main className="mx-auto mb-6 max-w-xs">
       <MainHeading></MainHeading>
       <DessertList desserts={desserts}></DessertList>
       <Cart></Cart>

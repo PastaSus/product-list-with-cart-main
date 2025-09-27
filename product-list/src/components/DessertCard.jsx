@@ -4,13 +4,25 @@ function DessertCard({ dessert }) {
   return (
     <article className="desert-card">
       <div className="relative">
-        <img src={dessert.image.mobile} alt={dessert.name} />
+        <picture>
+          <source srcSet={dessert.image.desktop} media="(min-width: 1024px)" />
+          <source srcSet={dessert.image.tablet} media="(min-width: 768px)" />
+          <img
+            src={dessert.image.mobile}
+            alt={dessert.name}
+            className="rounded-xl"
+          />
+        </picture>
         <AddToCart className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2"></AddToCart>
       </div>
-      <div>
-        <h3>{dessert.category}</h3>
-        <p>{dessert.name}</p>
-        <p>${dessert.price}</p>
+      <div className="mt-5 grid gap-1">
+        <h3 className="text-base font-light text-[var(--Rose-500)]">
+          {dessert.category}
+        </h3>
+        <p className="mt-0 font-medium">{dessert.name}</p>
+        <p className="mt-0 font-medium text-[var(--Red)]">
+          ${dessert.price.toFixed(2)}
+        </p>
       </div>
     </article>
   );
