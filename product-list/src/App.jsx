@@ -11,16 +11,14 @@ function App() {
 
   function handleAdd(dessertIndex) {
     const dessert = desserts[dessertIndex];
-
     setCart((prevCart) => {
       const existing = prevCart.find((item) => item.index === dessertIndex);
-
       if (existing) {
-        return prevCart.map((item) => {
+        return prevCart.map((item) =>
           item.index === dessertIndex
             ? { ...item, quantity: item.quantity + 1 }
-            : item;
-        });
+            : item,
+        );
       } else {
         return [...prevCart, { ...dessert, index: dessertIndex, quantity: 1 }];
       }
@@ -28,15 +26,15 @@ function App() {
   }
 
   function handleRemove(dessertIndex) {
-    setCart((prevCart) => {
+    setCart((prevCart) =>
       prevCart
         .map((item) =>
           item.index === dessertIndex
             ? { ...item, quantity: item.quantity - 1 }
             : item,
         )
-        .filter((item) => item.quantity > 0);
-    });
+        .filter((item) => item.quantity > 0),
+    );
   }
 
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0); // ← Fixed reduce
@@ -46,7 +44,7 @@ function App() {
   ); // ← Fixed reduce
 
   return (
-    <main className="mx-auto mb-6 max-w-xs">
+    <main className="mx-auto max-w-82 pb-6">
       <MainHeading></MainHeading>
       <DessertList
         desserts={desserts}

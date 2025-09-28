@@ -5,14 +5,14 @@ function DessertCard({ dessert, quantity, onAdd, onRemove }) {
     <article className="desert-card">
       <div className="relative">
         <picture
-          className={`${quantity > 0 ? "border-2 border-[var(--Red)]" : ""}`}
+          className={`${quantity > 0 ? "rounded-lg border-2 border-[var(--Red)]" : ""}`}
         >
           <source srcSet={dessert.image.desktop} media="(min-width: 1024px)" />
           <source srcSet={dessert.image.tablet} media="(min-width: 768px)" />
           <img
             src={dessert.image.mobile}
             alt={dessert.name}
-            className="rounded-xl"
+            className="rounded-lg"
           />
         </picture>
         <AddToCart

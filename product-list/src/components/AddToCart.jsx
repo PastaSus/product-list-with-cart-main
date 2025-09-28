@@ -13,7 +13,7 @@ function AddToCart({ className, quantity, onAdd, onRemove }) {
     >
       <button
         onClick={onRemove}
-        className="flex h-5 w-5 items-center justify-center rounded-full hover:bg-[var(--Red)]"
+        className="flex h-5 w-5 cursor-pointer items-center justify-center rounded-full border-2 border-[var(--Rose-50)] bg-[var(--Red)] p-0"
         aria-label="Decrease item"
       >
         <img
@@ -24,7 +24,7 @@ function AddToCart({ className, quantity, onAdd, onRemove }) {
       <span className="font-medium">{quantity}</span>
       <button
         onClick={onAdd}
-        className="flex h-5 w-5 items-center justify-center rounded-full hover:bg-[var(--Red)]"
+        className="flex h-5 w-5 cursor-pointer items-center justify-center rounded-full border-2 border-[var(--Rose-50)] bg-[var(--Red)] p-0"
         aria-label="Add item"
       >
         <img
