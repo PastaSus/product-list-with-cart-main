@@ -3,11 +3,13 @@ import { useState } from "react";
 import MainHeading from "./components/MainHeading";
 import DessertList from "./components/DessertList";
 import Cart from "./components/Cart";
+import ConfirmOrder from "./components/ConfirmOrder";
 
 import desserts from "./assets/data.json";
 
 function App() {
   const [cart, setCart] = useState([]);
+  const [confirmOpen, setConfirmOpen] = useState(false);
 
   function handleAdd(dessertIndex) {
     const dessert = desserts[dessertIndex];
@@ -37,6 +39,15 @@ function App() {
     );
   }
 
+  function handleConfirmOrder() {
+    setConfirmOpen(true);
+  }
+
+  function handleResetOrder() {
+    setCart([]); // clear cart
+    setConfirmOpen(false); // close modal
+  }
+
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0); // ← Fixed reduce
   const totalPrice = cart.reduce(
     (sum, item) => sum + item.quantity * item.price,
@@ -44,21 +55,32 @@ function App() {
   ); // ← Fixed reduce
 
   return (
-    <main className="mx-auto max-w-82 pb-6">
-      <MainHeading></MainHeading>
-      <DessertList
-        desserts={desserts}
-        cart={cart}
-        onAdd={handleAdd}
-        onRemove={handleRemove}
-      ></DessertList>
-      <Cart
-        items={cart}
-        totalItems={totalItems}
-        totalPrice={totalPrice}
-        onRemove={handleRemove}
-      ></Cart>
-    </main>
+    <div>
+      <main className="mx-auto max-w-82 pb-6">
+        <MainHeading></MainHeading>
+        <DessertList
+          desserts={desserts}
+          cart={cart}
+          onAdd={handleAdd}
+          onRemove={handleRemove}
+        ></DessertList>
+        <Cart
+          items={cart}
+          totalItems={totalItems}
+          totalPrice={totalPrice}
+          onRemove={handleRemove}
+          onConfirm={handleConfirmOrder}
+        ></Cart>
+      </main>
+
+      {confirmOpen && (
+        <ConfirmOrder
+          items={cart}
+          totalPrice={totalPrice}
+          onReset={handleResetOrder}
+        />
+      )}
+    </div>
   );
 }
 
