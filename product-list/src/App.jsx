@@ -9,7 +9,7 @@ import desserts from "./assets/data.json";
 
 function App() {
   const [cart, setCart] = useState([]);
-  const [confirmOpen, setConfirmOpen] = useState(false);
+  const [confirmOpen, setConfirmOpen] = useState(true);
 
   function handleAdd(dessertIndex) {
     const dessert = desserts[dessertIndex];

@@ -1,4 +1,4 @@
-function Cart({ items, totalItems, totalPrice, onRemove }) {
+function Cart({ items, totalItems, totalPrice, onRemove, onConfirm }) {
   const removeCartItem = (item) => {
     for (let i = 0; i < item.quantity; i++) {
       onRemove(item.index);
@@ -89,7 +89,7 @@ function Cart({ items, totalItems, totalPrice, onRemove }) {
             </div>
             <button
               className="mt-6 w-full cursor-pointer rounded-full border-none bg-[var(--Red)] py-4 text-[var(--Rose-50)]"
-              // onClick={""}
+              onClick={onConfirm}
             >
               Confirm Order
             </button>
