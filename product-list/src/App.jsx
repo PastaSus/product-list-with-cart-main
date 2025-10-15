@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-import MainHeading from "./components/MainHeading";
 import DessertList from "./components/DessertList";
 import Cart from "./components/Cart";
 import ConfirmOrder from "./components/ConfirmOrder";
@@ -9,7 +8,7 @@ import desserts from "./assets/data.json";
 
 function App() {
   const [cart, setCart] = useState([]);
-  const [confirmOpen, setConfirmOpen] = useState(true);
+  const [confirmOpen, setConfirmOpen] = useState(false);
 
   function handleAdd(dessertIndex) {
     const dessert = desserts[dessertIndex];
@@ -56,14 +55,16 @@ function App() {
 
   return (
     <div>
-      <main className="mx-auto max-w-82 pb-6">
-        <MainHeading></MainHeading>
-        <DessertList
-          desserts={desserts}
-          cart={cart}
-          onAdd={handleAdd}
-          onRemove={handleRemove}
-        ></DessertList>
+      <main className="mx-auto grid max-w-82 pb-6 md:max-w-150 xl:my-14 xl:max-w-7xl xl:grid-cols-[auto_auto] xl:gap-8 xl:px-8">
+        <div>
+          <h1 className="text-[2.5rem] text-[var(--Rose-900)]">Desserts</h1>
+          <DessertList
+            desserts={desserts}
+            cart={cart}
+            onAdd={handleAdd}
+            onRemove={handleRemove}
+          ></DessertList>
+        </div>
         <Cart
           items={cart}
           totalItems={totalItems}
@@ -73,12 +74,23 @@ function App() {
         ></Cart>
       </main>
 
+      {/* Overlay + ConfirmOrder modal  
+      fixme:confirm order should be above overlay its below it*/}
       {confirmOpen && (
-        <ConfirmOrder
-          items={cart}
-          totalPrice={totalPrice}
-          onReset={handleResetOrder}
-        />
+        <>
+          {/* Full-screen overlay, just below the modal */}
+          <div
+            className="fixed inset-0 z-40 bg-black/60"
+            aria-hidden="true"
+          ></div>
+
+          {/* ConfirmOrder modal */}
+          <ConfirmOrder
+            items={cart}
+            totalPrice={totalPrice}
+            onReset={handleResetOrder}
+          />
+        </>
       )}
     </div>
   );

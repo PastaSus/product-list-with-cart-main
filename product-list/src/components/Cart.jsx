@@ -8,7 +8,7 @@ function Cart({ items, totalItems, totalPrice, onRemove, onConfirm }) {
   return (
     <section
       aria-labelledby="cart-heading"
-      className="mt-6 rounded-xl px-6 py-8 text-center shadow-md"
+      className="mt-6 rounded-xl px-6 py-8 text-center shadow-md xl:min-w-95 xl:self-start"
     >
       <h2 id="cart-heading" className="m-0 text-start text-[var(--Red)]">
         Your Cart ({totalItems})
@@ -20,7 +20,7 @@ function Cart({ items, totalItems, totalPrice, onRemove, onConfirm }) {
             src="./../../assets/images/illustration-empty-cart.svg"
             alt="A Cake and one slice of it"
           />
-          <p className="text-sm font-medium text-[var(--Rose-500)]">
+          <p className="text-sm font-medium text-[var(--Rose-500)] xl:font-semibold">
             Your added items will appear here
           </p>
         </div>
