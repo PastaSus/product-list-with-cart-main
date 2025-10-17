@@ -43,8 +43,7 @@ body {
   min-height: 100vh;
   font-family: "Red Hat Text", sans-serif;
   margin: 0;
-  /* font-size: ; */
-  /* color: var(--Wenge-Brown); */
+
   background-color: var(--Rose-50);
 }
 
