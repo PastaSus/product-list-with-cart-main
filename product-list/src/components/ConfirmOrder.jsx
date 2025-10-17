@@ -1,12 +1,14 @@
 function ConfirmOrder({ items, totalPrice, onReset }) {
   return (
-    // <div
-    //   className="bg-opacity-50 absolute inset-0 z-50 flex items-center justify-center bg-black/60"
-    //   role="dialog"
-    //   aria-modal="true"
-    //   aria-labelledby="order-confirmed-heading"
-    // >
-    <article className="absolute top-1/7 bottom-0 min-h-172 w-full overflow-y-scroll rounded-t-xl bg-white px-6 py-8">
+    // absolute top-1/7 bottom-0 z-3 min-h-0 w-full overflow-y-scroll rounded-t-xl bg-white px-6 py-8
+    <div
+      className="absolute top-[17%] left-1/2 z-50 w-[90%] max-w-md -translate-x-1/2 rounded-xl bg-white px-6 py-8 shadow-lg"
+      id="confirm-order-modal"
+      tabIndex="-1"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="order-confirmed-heading"
+    >
       <header className="mb-6">
         <img src="./../../assets/images/icon-order-confirmed.svg" alt=""></img>
         <h2
@@ -68,7 +70,7 @@ function ConfirmOrder({ items, totalPrice, onReset }) {
       >
         Start New Order
       </button>
-    </article>
+    </div>
     // </div>
   );
 }

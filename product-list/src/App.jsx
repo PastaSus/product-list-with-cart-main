@@ -40,6 +40,32 @@ function App() {
 
   function handleConfirmOrder() {
     setConfirmOpen(true);
+
+    setTimeout(() => {
+      const modal = document.getElementById("confirm-order-modal");
+
+      if (modal) {
+        // Try to focus without scrolling (modern browsers)
+        if (typeof modal.focus === "function") {
+          try {
+            modal.focus({ preventScroll: true });
+          } catch {
+            // Older browsers don't support the options object → fallback
+            modal.focus();
+          }
+        }
+        // Only use smooth scrolling if user doesn't prefer reduced motion
+        const prefersReducedMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+
+        // Then smooth-scroll it into view
+        modal.scrollIntoView({
+          behavior: prefersReducedMotion ? "auto" : "smooth",
+          block: "center",
+        });
+      }
+    }, 0);
   }
 
   function handleResetOrder() {
@@ -80,7 +106,7 @@ function App() {
         <>
           {/* Full-screen overlay, just below the modal */}
           <div
-            className="fixed inset-0 z-40 bg-black/60"
+            className="fixed inset-0 z-2 bg-black/60"
             aria-hidden="true"
           ></div>
 
