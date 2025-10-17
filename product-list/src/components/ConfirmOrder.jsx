@@ -2,7 +2,7 @@ function ConfirmOrder({ items, totalPrice, onReset }) {
   return (
     // absolute top-1/7 bottom-0 z-3 min-h-0 w-full overflow-y-scroll rounded-t-xl bg-white px-6 py-8
     <div
-      className="absolute top-[17%] left-1/2 z-50 w-[90%] max-w-md -translate-x-1/2 rounded-xl bg-white px-6 py-8 shadow-lg"
+      className="absolute top-[17%] left-1/2 z-3 w-[90%] max-w-md -translate-x-1/2 rounded-xl bg-white px-6 py-8 shadow-lg xl:top-10/12 xl:max-w-xl xl:-translate-y-1/2"
       id="confirm-order-modal"
       tabIndex="-1"
       role="dialog"
@@ -12,7 +12,7 @@ function ConfirmOrder({ items, totalPrice, onReset }) {
       <header className="mb-6">
         <img src="./../../assets/images/icon-order-confirmed.svg" alt=""></img>
         <h2
-          className="mt-6 max-w-75 text-5xl text-[var(--Rose-900)]"
+          className="mt-6 max-w-75 text-5xl text-[var(--Rose-900)] xl:max-w-full"
           id="order-confirmed-heading"
         >
           Order Confirmed
@@ -37,9 +37,11 @@ function ConfirmOrder({ items, totalPrice, onReset }) {
                 />
                 <div className="grid gap-2">
                   <h3 className="mt-0 text-base font-medium text-[var(--Rose-900)]">
-                    {item.name.length > 20
-                      ? item.name.slice(0, 20) + "..."
-                      : item.name}
+                    {window.innerWidth >= 1280
+                      ? item.name
+                      : item.name.length > 20
+                        ? item.name.slice(0, 20) + "..."
+                        : item.name}
                   </h3>
                   <span className="flex items-center gap-3 text-sm text-[var(--Rose-500)]">
                     <span className="font-semibold text-[var(--Red)]">
