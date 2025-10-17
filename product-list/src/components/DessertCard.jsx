@@ -20,6 +20,7 @@ function DessertCard({ dessert, quantity, onAdd, onRemove }) {
           quantity={quantity}
           onAdd={onAdd}
           onRemove={onRemove}
+          ariaLabel={dessert.name}
         ></AddToCart>
       </div>
       <div className="mt-5 grid gap-1">

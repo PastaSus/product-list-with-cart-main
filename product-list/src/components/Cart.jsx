@@ -52,16 +52,26 @@ function Cart({ items, totalItems, totalPrice, onRemove, onConfirm }) {
                 </div>
                 <div>
                   <button
-                    className="flex h-4 w-4 cursor-pointer items-center justify-center rounded-full border border-[var(--Rose-500)] bg-transparent p-0"
+                    className="flex h-4 w-4 cursor-pointer items-center justify-center rounded-full border border-[var(--Rose-500)] bg-transparent p-0 hover:border-[var(--Rose-900)] focus:border-[var(--Rose-900)] hover:[&>svg>path]:fill-[var(--Rose-900)] focus:[&>svg>path]:fill-[var(--Rose-900)]"
                     aria-label={`Remove ${item.name} from cart`}
                     onClick={() => {
                       removeCartItem(item);
                     }}
                   >
-                    <img
-                      src="./../../assets/images/icon-remove-item.svg"
-                      alt=""
-                    />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="10"
+                      height="10"
+                      fill="none"
+                      viewBox="0 0 10 10"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path
+                        fill="hsl(7, 20%, 60%)"
+                        d="M8.375 9.375 5 6 1.625 9.375l-1-1L4 5 .625 1.625l1-1L5 4 8.375.625l1 1L6 5l3.375 3.375-1 1Z"
+                      />
+                    </svg>
                   </button>
                 </div>
               </li>
@@ -74,7 +84,7 @@ function Cart({ items, totalItems, totalPrice, onRemove, onConfirm }) {
                 ${totalPrice.toFixed(2)}
               </output>
             </div>
-            <div className="mt-6 flex items-center gap-2 rounded-lg bg-[var(--Rose-50)] px-5 py-4">
+            <div className="mt-6 flex items-center justify-center gap-2 rounded-lg bg-[var(--Rose-100)] px-5 py-4">
               <img
                 alt=""
                 src="./../../assets/images/icon-carbon-neutral.svg"
@@ -88,7 +98,7 @@ function Cart({ items, totalItems, totalPrice, onRemove, onConfirm }) {
               </span>
             </div>
             <button
-              className="mt-6 w-full cursor-pointer rounded-full border-none bg-[var(--Red)] py-4 text-[var(--Rose-50)]"
+              className="mt-6 w-full cursor-pointer rounded-full border-none bg-[var(--Red)] py-4 text-[var(--Rose-50)] hover:bg-orange-800 focus:bg-orange-800"
               onClick={onConfirm}
             >
               Confirm Order
