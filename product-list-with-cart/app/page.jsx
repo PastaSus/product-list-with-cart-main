@@ -80,7 +80,7 @@ export default function Home() {
   );
 
   return (
-    <>
+    <div>
       <main className="mx-auto grid max-w-82 pb-6 md:max-w-150 xl:my-14 xl:max-w-7xl xl:grid-cols-[auto_auto] xl:gap-8 xl:px-8">
         <div>
           <h1 className="text-[2.5rem] text-[var(--Rose-900)]">Desserts</h1>
@@ -118,6 +118,6 @@ export default function Home() {
           />
         </>
       )}
-    </>
+    </div>
   );
 }
