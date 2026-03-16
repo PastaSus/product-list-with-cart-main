@@ -3,6 +3,8 @@ import "./globals.css";
 
 const redHatText = Red_Hat_Text({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap", // Helps with performance/display
 });
 
 export const metadata = {
